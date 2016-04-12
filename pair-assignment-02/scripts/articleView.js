@@ -56,6 +56,20 @@ articleView.handleCategoryFilter = function() {
   //       When the blank (default) option is selected, show all the articles, except for the template.
   //       Be sure to reset the #author-filter while you are at it!
 
+  $('#category-filter').on('change', function() {
+  var categoryName = $(this).val(); //Turned value of author into a variable +++++++++
+    if (categoryName) {
+
+      $('article').hide(); //hiding ALL articles
+      $('article[data-category="' + categoryName +'"]').fadeIn('slow'); //fade in JUST the one category
+
+    } else {
+      $('article:not(.template)').fadeIn('fast'); //showing all articles but the template +++++++
+
+    }
+    $('#author-filter').val('');
+  });
+
 };
 
 articleView.handleMainNav = function() {

@@ -17,11 +17,11 @@
     </header>
     <nav class="main-nav">
       <ul>
-        <!-- TODO: Use one of the icons from the available set for each of these nav items... -->
-        <li class="tab" data-content="articles"><a href="#"> Home</a></li>
-        <li class="tab" data-content="about"><a href="#"> About</a></li>
-        <li><a href="http://twitter.com/brookr" target="_blank"> Twitter</a></li>
-        <li><a href="http://github.com/brookr" target="_blank"> GitHub</a></li>
+        <!-- DONE: Use one of the icons from the available set for each of these nav items... -->
+        <li class="tab" data-content="articles"><a class='icon-home' href="#"> Home</a></li>
+        <li class="tab" data-content="about"><a class='icon-address-book'href="#"> About</a></li>
+        <li><a href="http://twitter.com/brookr" target="_blank" class='icon-twitter3'> Twitter</a></li>
+        <li><a href="http://github.com/brookr" target="_blank" class='icon-github'> GitHub</a></li>
       </ul>
     </nav>
     <main>
@@ -40,7 +40,7 @@
             </li>
           </ul>
         </div>
-        <article class="template template" data-category="cat">
+        <article class="template" data-category="cat">
           <header>
             <h1>Title</h1>
             <div class="byline">
@@ -73,6 +73,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="scripts/blogArticles.js"></script>
     <script src="scripts/article.js"></script>
-    <!-- TODO: Link up the new js file that will manage the article "View". -->
+    <!-- DONE: Link up the new js file that will manage the article "View". -->
+    <script src="scripts/articleView.js"></script>
   </body>
 </html>

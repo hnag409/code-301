@@ -12,13 +12,14 @@
 }
 
 .main-nav li {
+  list-style: none;
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
   border-bottom: 1px solid #ccc;
 }
 
-/* TODO: Style the filters so they look good on small screens:
+/* DONE: Style the filters so they look good on small screens:
     Use the full width, and remove the list bullet. */
 
 #filters {
@@ -26,6 +27,7 @@
 }
 
 #filters select {
+  width: 100%;
 
 }
 

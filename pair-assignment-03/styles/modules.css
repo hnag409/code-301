@@ -10,7 +10,10 @@
 
 /* TODO: Add styles for the icon-menu class. It should be bigger, and off to the right. */
 .icon-menu {
-
+    font-size:1.5em;
+    float:right;
+    padding: 10px;
+    margin-top: 0.7em;
 }
 
 .main-nav {

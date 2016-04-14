@@ -2,18 +2,21 @@
 var articleView = {};
 
 articleView.populateFilters = function() {
-  $('article').each(function() {
-    if (!$(this).hasClass('template')) {
-      var val = $(this).find('address a').text();
-      var optionTag = '<option value="' + val + '">' + val + '</option>';
-      $('#author-filter').append(optionTag);
+  var blogTemplate = $('#option-template').html();
+  var templateFunction = Handlebars.compile(blogTemplate);
 
-      val = $(this).attr('data-category');
-      optionTag = '<option value="' + val + '">' + val + '</option>';
-      if ($('#category-filter option[value="' + val + '"]').length === 0) {
-        $('#category-filter').append(optionTag);
-      }
+  $('article').each(function() {
+    var articleObject = {};
+    articleObject.val = $(this).find('address a').text();
+    var optionTag = templateFunction(articleObject);
+    $('#author-filter').append(optionTag);
+
+    articleObject.val = $(this).attr('data-category');
+    optionTag = templateFunction(articleObject);
+    if ($('#category-filter option[value="' + articleObject.val + '"]').length === 0) {
+      $('#category-filter').append(optionTag);
     }
+
   });
 };
 

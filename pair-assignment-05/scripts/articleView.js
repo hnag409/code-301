@@ -63,6 +63,8 @@ articleView.setTeasers = function() {
 };
 
 articleView.initNewArticlePage = function() {
+  articleView.handleMainNav();
+
   // DONE: Ensure the main .tab-content area is revealed. We might add more tabs later.
   $('.tab-content').show();
 
@@ -104,6 +106,7 @@ articleView.create = function(e) {
   }
 
   var newArticle = new Article(formData);
+
   $('#articles').html(newArticle.toHtml());
 
   // DONE: Activate the highlighting of any code blocks:
@@ -111,16 +114,13 @@ articleView.create = function(e) {
     hljs.highlightBlock(block);
   });
 
-  // DONE: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
-  delete newArticle.daysAgo;
-  delete newArticle.publishStatus;
+  // TODO: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
   var newArticleJson = JSON.stringify(newArticle);
   $('#article-json').val(newArticleJson);
   $('#export-field').show();
-
 };
 
-new Clipboard('.clipboardBtn');
+
 articleView.initIndexPage = function() {
   articleView.populateFilters();
   articleView.handleCategoryFilter();

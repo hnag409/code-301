@@ -66,7 +66,7 @@ articleView.initNewArticlePage = function() {
   // DONE: Ensure the main .tab-content area is revealed. We might add more tabs later.
   $('.tab-content').show();
 
-  // TODO: The new articles we create will be copy/pasted into our source data file.
+  // DONE: The new articles we create will be copy/pasted into our source data file.
   // Set up this "export" functionality. We can hide it for now, and show it once we
   // have data to export. Also, let's add focus event to help us select the JSON.
   $('#export-field').hide();
@@ -74,8 +74,8 @@ articleView.initNewArticlePage = function() {
 
 
 
-  // TODO: Add an event handler to update the preview and the export field if any inputs change.
-  $('#new-form').on('focus input','input, textarea', articleView.create);
+  // DONE: Add an event handler to update the preview and the export field if any inputs change.
+  $('#new-form').on('input change','input, textarea', articleView.create);
 
 
 };
@@ -83,18 +83,26 @@ articleView.initNewArticlePage = function() {
 //
 
 articleView.create = function(e) {
-  // TODO: Set up a var to hold the new article we are creating.
+  // DONE: Set up a var to hold the new article we are creating.
+  // Instantiate an article based on what's in the form fields.
   // Clear out the #articles element, so we can put in the updated preview
-  // var newArticle = {
-  //   title:       '',
-  //   category:    '',
-  //   author:      '',
-  //   authorUrl:   '',
-  //   publishedOn: '',
-  //   body:        ''
-  // }
-  // $('#articles').html()
-  // TODO: Instantiate an article based on what's in the form fields:
+  var newArticle = {
+    title: $('#article-title').val(),
+    category: $('#article-category').val(),
+    author: $('#article-author').val(),
+    authorUrl: $('#article-author-url').val(),
+    publishedOn: '',
+    body: $('#article-body').val()
+  };
+
+  if ($('#article-published').is(':checked')) {
+    var date = new Date();
+    newArticle.publishedOn = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+  } else {
+    newArticle.publishedOn = '';
+  }
+
+  $('#articles').html('');
 
   // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
 

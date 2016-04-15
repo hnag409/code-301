@@ -107,12 +107,15 @@ articleView.create = function(e) {
 
   $('#articles').html(newArticle.toHtml());
 
-
-
-  // TODO: Activate the highlighting of any code blocks:
+  // DONE: Activate the highlighting of any code blocks:
+  $('.article-body').find('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
 
   // TODO: Export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
-  // $JsonArticleContent = (JSON.stringify($('#article-body').val());
+  var newArticleJson = JSON.stringify(newArticle);
+  $('#article-json').val(newArticleJson);
+  $('#export-field').show();
 };
 
 

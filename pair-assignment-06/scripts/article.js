@@ -50,7 +50,8 @@ Article.fetchAll = function() {
     // and then render the index page (using the proper method on the articleView object).
     // DONE: What do we pass in here to the .loadAll function?
     Article.loadAll(JSON.parse(localStorage.rawData));
-    articleView.someFunctionToCall/*()*/; //TODO: Change this fake method call to the correct one that will render the index page.
+    // DONE: Change this fake method call to the correct one that will render the index page.
+    articleView.initIndexPage();
   } else {
     // TODO: When we don't already have the rawData in local storage, we need to get it from the JSON file,
     //       which simulates data on a remote server. Run live-server or pushstate-server!

@@ -51,24 +51,29 @@
     }
   };
 
-  // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
   Article.numWordsAll = function() {
     return Article.all.map(function(article) {
-      return whatShouldIReturn; // Grab the words from the `article` `body`.
+      var wordGrab = article.body.split(' ');
+      return wordGrab.length; // Grab the words from the `article` `body`.
     })
-    .reduce(function(a, b) {
-      return whatShouldIReturn;// Sum up all the values!
+    .reduce(function(previousVal, currentVal) {
+      var sum = previousVal + currentVal;
+      return sum;// Sum up all the values!
     });
   };
 
   // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = function() {
-    // Read docs on .map and .reduce! You can reference the previous
-    // `map` in the numWordsAll method to get started here.
-
-    // For our `reduce` -- since we are trying to return an array, we'll need to specify an accumulator type...
-    // what data type should this accumulator be and where is it placed?
-    return whatShouldIReturn;
+    return Article.all.map(function(article) {
+      var authorGrab = article.author;
+      return authorGrab;
+    })
+    .reduce(function(previousVal, currentVal) {
+      if(previous.indexOf(currentVal) < 0) {
+        previousVal.push(currentVal);
+      }
+      return previousVal;
+    }, []);
   };
 
   Article.numWordsByAuthor = function() {

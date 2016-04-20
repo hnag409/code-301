@@ -1,6 +1,6 @@
 // DONE: Wrap the entire contents of this file in an IIFE.
 // Pass in to the IIFE a module, upon which objects can be attached for later access.
-(function(module) {
+// (function(module) {
 
   // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
   var articleView = {};
@@ -116,7 +116,7 @@
   articleView.initAdminPage = function() {
     // TODO: Call the Handlebars `.compile` function, which will return a function for you to use where needed.
     var template; // = ...?
-
+    var template = Handlebars.compile($('#author-template').text());
     // DONE: We use `forEach` here because we are relying on the side-effects of the callback function:
     // appending to the DOM.
     // The callback is not required to return anything.
@@ -129,5 +129,5 @@
     $('#blog-stats .words').text(Article.numWordsAll());
   };
 
-  module.articleView = articleView;
-})(window);
+//   module.articleView = articleView;
+// })(window);

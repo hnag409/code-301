@@ -1,4 +1,5 @@
-(function(module) {
+// (
+  // function(module) {
   function Article (opts) {
     this.author = opts.author;
     this.authorUrl = opts.authorUrl;
@@ -59,7 +60,7 @@
     .reduce(function(previousVal, currentVal) {
       var sum = previousVal + currentVal;
       return sum;// Sum up all the values!
-    });
+    }, 0);
   };
 
   Article.allAuthors = function() {
@@ -91,4 +92,6 @@
       };
     });
   };
-}) (window);
+  // module.Article = article;
+// };
+// ) (window);
